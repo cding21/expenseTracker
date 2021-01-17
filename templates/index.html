@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio Summary
+{% endblock %}
+
+{% block main %}
+
+    <h2>Spending Summary</h2>
+    <section id="s-team" class="section">
+			<div class="b-skills">
+				<div class="container">
+				    <div class="row">
+					    {%for percentage in percentages%}
+						<div class="col-xs col-sm col-md">
+							<div class="skill-item center-block">
+								<div class="chart-container">
+									<div class="chart" data-percent="percentage["percentage"]" data-bar-color="#23afe3">
+										<span class="percent" data-after="%">{{ percentage["percentage"] }}</span>
+									</div>
+								</div>
+
+								<p>{{ percentage["category"] }}</p>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+	</section>
+	<br><br>
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for history in historys %}
+            <tr>
+                <td>{{history["category"]}}</td>
+                <td>{{history["amount"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total Amount</th>
+                <td>{{  total  }}</td>
+            </tr>
+        </tfoot>
+    </table>
+	<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="https://raw.githubusercontent.com/cding21/FINAL/main/plugins/jquery.appear.min.js?token=APOSECWDZBKZTMVR4RXV37LAAORIE"></script>
+    <script src="https://raw.githubusercontent.com/cding21/FINAL/main/plugins/jquery.easypiechart.min.js?token=APOSECVNCO5SKG2I55NCVHDAAORGE"></script>
+
+
+{% endblock %}

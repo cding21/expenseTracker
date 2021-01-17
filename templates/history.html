@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+
+
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Category</th>
+                <th>Notes</th>
+                <th>Amount</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for history in historys %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{history["category"]}}</td>
+                <td>{{history["notes"]}}</td>
+                <td>{{history["amount"]}}</td>
+                <td>{{history["time"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan = "2"></td>
+                <th>Total expenditure</th>
+                <td>{{  total  }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+{% endblock %}

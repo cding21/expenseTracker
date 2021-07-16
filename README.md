@@ -1,4 +1,4 @@
-# expenseTracker
+# Expense Tracker
 An easy, user-friendly web application that tracks expenses through categorisation on database based on a particular user's details. 
 
 Some features include:
